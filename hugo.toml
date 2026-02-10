@@ -1,7 +1,7 @@
 baseURL = '/'
 languageCode = 'en-us'
 title = 'The Geargineer - Creative Outdoor Gear'
-theme = 'hugo-theme-cleanwhite'
+theme = 'ananke'
 [markup.goldmark.renderHooks.image]
 useEmbedded = 'fallback'
 
