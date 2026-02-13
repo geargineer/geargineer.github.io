@@ -2,6 +2,7 @@
 title: Introduction to Geargineer
 date: 2022-11-20
 draft: false
+tags: ['brompton', 'bikepacking']
 ---
 
 ## Introduction
@@ -15,8 +16,6 @@ Here a first picture:
 
 *looks nice :-)*
 
-Using a hugo-makro:
-{{ .Resources.Get "brompton_trento.jpg" }}
 
 Hugo Makros don't work!!
 

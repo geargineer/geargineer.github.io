@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+    <title>The Geargineer on Hugo ʕ•ᴥ•ʔ Bear Blog</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content in Home on Hugo ʕ•ᴥ•ʔ Bear Blog</description>
+    <description>Recent content in The Geargineer on Hugo ʕ•ᴥ•ʔ Bear Blog</description>
     <generator>Hugo</generator>
     <language>en-US</language>
     <copyright>Copyright © 2020, Jane Doe.</copyright>
@@ -31,11 +31,18 @@
       <description>&lt;h2 id=&#34;introduction-to-geargineer&#34;&gt;Introduction to Geargineer&lt;/h2&gt;&#xA;&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Brompton Trento Bikepacking</title>
+      <link>http://localhost:1313/brompton_trento/</link>
+      <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/brompton_trento/</guid>
+      <description>&lt;h2 id=&#34;bikepacking-to-trento-with-a-brompton&#34;&gt;Bikepacking to Trento with a Brompton&lt;/h2&gt;&#xA;&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;&#xA;&lt;p&gt;Here a first picture:&#xA;&lt;img src=&#34;images/brompton_trento.jpg&#34; alt=&#34;brompton_trento.jpg&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;looks nice :-)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;does-this-work-better&#34;&gt;does this work better&lt;/h3&gt;</description>
+    </item>
+    <item>
       <title>Introduction to Geargineer</title>
       <link>http://localhost:1313/my-first-post/</link>
       <pubDate>Sun, 20 Nov 2022 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/my-first-post/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;&#xA;&lt;p&gt;Here a first picture:&#xA;&lt;img src=&#34;images/brompton_trento.jpg&#34; alt=&#34;brompton_trento.jpg&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;looks nice :-)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Using a hugo-makro:&#xA;{{ .Resources.Get &amp;ldquo;brompton_trento.jpg&amp;rdquo; }}&lt;/p&gt;&#xA;&lt;p&gt;Hugo Makros don&amp;rsquo;t work!!&lt;/p&gt;&#xA;&lt;h3 id=&#34;does-this-work-better&#34;&gt;does this work better&lt;/h3&gt;</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;This is &lt;strong&gt;bold&lt;/strong&gt; text, and this is &lt;em&gt;emphasized&lt;/em&gt; text.&lt;/p&gt;&#xA;&lt;p&gt;Visit the &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; website!&lt;/p&gt;&#xA;&lt;p&gt;Here a first picture:&#xA;&lt;img src=&#34;images/brompton_trento.jpg&#34; alt=&#34;brompton_trento.jpg&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;looks nice :-)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hugo Makros don&amp;rsquo;t work!!&lt;/p&gt;&#xA;&lt;h3 id=&#34;does-this-work-better&#34;&gt;does this work better&lt;/h3&gt;</description>
     </item>
     <item>
       <title>Markdown Syntax Guide</title>
