@@ -1,0 +1,32 @@
+<p>header-partial Copyright 2026. All rights reserved.</p>
+<h2>page-template: Hugo Publish Extension for Obsidian</h2>
+<hr>
+<p>#obsidian_cms<br>
+#hugo_site<br>
+use tags without underscore<br>
+#obsidian<br>
+#hugosite</p>
+<h1 id="how-to-set-up-hugo-publish-extension">How to set up Hugo Publish Extension</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>To start with the hugo-publis-extension on obsidian, I prepared the following:</p>
+<ul>
+<li>an obsidian vault with markdown files which will serve as CMS where I will write content, insert images and so on</li>
+<li>a local directory which is initialized as hugo-site containing a raw structure for hugo, in my case: */home/geargineer/Hugo_Sites/geargineer.pages.io</li>
+</ul>
+<h2 id="configure-obsidian-plugin">Configure obsidian plugin</h2>
+<p>Set configuration of hugo-extension to point to the local hugo-dir:<br>
+<img src="/ob/Pasted%20image%2020260228081018.png" alt="Pasted image 20260228081018.png"><br>
+(this also being the first image I try to share using hugo sync in obisidian)</p>
+<p>**pressing &ldquo;hugo sync&rdquo;<br>
+&hellip; and it worked!!:<br>
+<img src="/ob/Pasted%20image%2020260228081526.png" alt="Pasted image 20260228081526.png"></p>
+<p>(ignore the &ldquo;group intothebridge&rdquo;). All markdowns are there.</p>
+<h2 id="front-matter">Front matter</h2>
+<p>Let&rsquo;s check the front matter:<br>
+<img src="/ob/Pasted%20image%2020260228081651.png" alt="Pasted image 20260228081651.png"></p>
+<p>hugo publish inserts automatically the front matter above (yaml-Syntax). Let&rsquo;s set this page &ldquo;draft&rdquo; directly in the content dir and see what happens on the next sync:</p>
+<h3 id="draft-status">Draft status</h3>
+<hr>
+<p>footer-partial</p>
+<h3><a href="/">Back to Main Page</a></h3>
+<p>Copyright by geargineer 2026. License: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">CC BY-NC-SA 4.0</a></p>

@@ -2,38 +2,81 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/development/</loc>
+    <lastmod>2026-03-18T09:52:31+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/geargineer/</loc>
+    <lastmod>2026-03-18T09:52:31+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/information_technology/</loc>
+    <lastmod>2026-03-18T09:52:31+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2026-02-06T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-18T09:52:31+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/hugo/</loc>
+    <loc>http://localhost:1313/tags/software/</loc>
+    <lastmod>2026-03-18T09:52:31+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/bear/</loc>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-03-18T10:13:42+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/hugo_templates_layouts/</loc>
+    <lastmod>2026-03-16T15:11:07+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
-    <lastmod>2026-02-06T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/hugosite/</loc>
+    <lastmod>2026-03-18T10:13:42+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/bikepacking/</loc>
-    <lastmod>2022-11-20T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/hugotheme/</loc>
+    <lastmod>2026-03-16T15:11:07+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/brompton/</loc>
-    <lastmod>2022-11-20T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/hugo_fixing_lugo_theme/</loc>
+    <lastmod>2026-03-15T18:00:48+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/brompton_trento/</loc>
-    <lastmod>2022-11-20T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/hugo_list_pages_missing/</loc>
+    <lastmod>2026-03-15T19:12:19+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/my-first-post/</loc>
-    <lastmod>2022-11-20T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/hugo_troubleshooting_obsidian_export/</loc>
+    <lastmod>2026-03-15T18:41:09+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/markdown/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/hugo_nil_pointer/</loc>
+    <lastmod>2026-03-18T10:04:53+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/markdown-syntax-guide/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/hugo_obsidian_frontmatter/</loc>
+    <lastmod>2026-03-08T18:13:23+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/syntax/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/publishing_hugo_sagar_se/</loc>
+    <lastmod>2026-03-01T07:54:30+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/git/</loc>
+    <lastmod>2026-03-18T10:01:32+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/git_tipps_and_tricks/</loc>
+    <lastmod>2026-03-18T10:01:32+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/github/</loc>
+    <lastmod>2026-03-18T10:01:32+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/hugo_theme/</loc>
+    <lastmod>2026-03-07T19:23:32+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/obsidian_to_hugo/</loc>
+    <lastmod>2026-03-06T21:18:59+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/hugo_publish/</loc>
+    <lastmod>2026-03-07T19:22:35+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/obsidian/</loc>
+    <lastmod>2026-03-18T10:13:42+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/obsidian_cms/</loc>
+    <lastmod>2026-03-18T10:13:42+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/structuring_projects/</loc>
+    <lastmod>2026-03-08T18:13:58+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/thinkstuff/</loc>
+    <lastmod>2026-02-26T08:54:20+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>

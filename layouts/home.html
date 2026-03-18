@@ -1,0 +1,6 @@
+{{ define "main" }}
+  {{ .Content }}
+  {{ range .Site.RegularPages }}
+    <h2><a href="{{ .RelPermalink }}">home-template {{ .LinkTitle }}</a></h2>
+  {{ end }}
+{{ end }}
