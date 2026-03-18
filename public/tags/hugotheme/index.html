@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <title>baseof-template 
+      &lt;!-- Blocks may include default content. -->
+      My New Hugo Site
+    </title>
+  </head>
+  <body>
+    <p style="background-image: url('hero_home.jpg');">hero-partial Copyright 2026. 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p>baseof-template</p>
+    
+  <h1>list-template - Posts</h1>
+  
+    <article>
+      <h2>Hugo templates and layouts</h2>
+      <h1 id="hugo-templates-and-layouts">Hugo templates and Layouts</h1>
+<p>It seems that for understanding the rendering (and especially the NOT-rendering) of pages, I have to understand the templating and layouting syntax.<br>
+These are resources for that:</p>
+<p><a href="https://bwaycer.github.io/hugo">https://bwaycer.github.io/hugo</a>_tutorial.hugo/templates/blocks/</p>
+<p>and the official hugo documentation:<br>
+<a href="https://gohugo.io/templates/introduction/">https://gohugo.io/templates/introduction/</a></p>
+
+    </article>
+  
+    <article>
+      <h2>Hugo fixing the lugo theme</h2>
+      <h1 id="fixing-the-lugo-theme">Fixing the lugo-theme</h1>
+<p>The lugo theme (as given by Luke Smith on github) seems to have two problems, which I (empirically) fixed as follows:</p>
+<pre tabindex="0"><code>diff -bur lugo-master/layouts/_default/list.html ../dev.geargineer/themes/lugo/layouts/_default/list.html  
+--- lugo-master/layouts/_default/list.html      2025-02-28 12:55:01.000000000 +0100  
++++ ../dev.geargineer/themes/lugo/layouts/_default/list.html    2026-03-15 17:26:33.000000000 +0100  
+@@ -7,7 +7,7 @@  
+{{- range.Pages }}  
+&lt;li&gt;  
+       {{- if .Param &#34;datesinlist&#34; }}&lt;time datetime=&#34;{{ .Date.Format &#34;2006-01-02T15:04:05Z07:00&#34; }}&#34;&gt;{{ .Date.Format &#34;2006 Jan 02&#34; }}&lt;/time&gt; &amp;ndash; {{ end -}}  
+-       &lt;a href=&#34;{{ .RelPermalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;  
+**+       &lt;a href=&#34;{{ .RelPermalink }}&#34;&gt; IW_Read {{ .Title }}&lt;/a&gt;**  
+       {{- if .Param &#34;authorsinlist&#34; }}  
+       {{ with .Params.authors }}  
+               by    
+diff -bur lugo-master/layouts/partials/nav.html ../dev.geargineer/themes/lugo/layouts/partials/nav.html  
+--- lugo-master/layouts/partials/nav.html       2025-02-28 12:55:01.000000000 +0100  
++++ ../dev.geargineer/themes/lugo/layouts/partials/nav.html     2026-03-15 17:26:33.000000000 +0100  
+@@ -1,6 +1,10 @@  
+&lt;nav&gt;  
+    &lt;ul&gt;  
+-       {{- $sec := .Page.Section }}{{ $file := .File.TranslationBaseName -}}  
++       {{- $sec := .Page.Section -}}  
++       {{ $file := &#34;undefined&#34; }}  
++       {{ with .File }}  
++           {{ $file = .TranslationBaseName }}  
++       {{ end }}  
+        {{ range.Site.Menus.main.ByWeight }}{{ $base := path.Base .URL }}  
+       &lt;li&gt;&lt;a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec &#34;&#34;) ( eq $file &#34;_index&#34;) (eq $base &#34;/&#34;) ) }}class=&#34;menuactive&#34; {{ end }}href=&#34;{{ .URL }}&#34;&gt;&lt;span class=pre&gt;{{ .Pre }}&lt;/span&gt;&lt;span c  
+lass=menuname&gt;{{ .Name }}&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;  
+        {{- end }}
+</code></pre><h3 id="fixing-missing-title-attribute">Fixing missing title attribute</h3>
+<p>Is the .title attribute missing, the list.html does not list the according pages. This is made visible by adding a constant prefix IW_read to the title variable. Proper fixing needed.</p>
+<h3 id="fixing-crash-of-translationsbasename">Fixing crash of TranslationsBaseName</h3>
+<p>As found in the internet (somewhere) checking .File for existence renders getting the BaseName more robust.</p>
+
+    </article>
+  
+
+
+    
+  </body>
+</html>

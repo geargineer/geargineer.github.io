@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <title>baseof-template 
+      &lt;!-- Blocks may include default content. -->
+      My New Hugo Site
+    </title>
+  </head>
+  <body>
+    <p style="background-image: url('hero_home.jpg');">hero-partial Copyright 2026. 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p>
+<p>baseof-template</p>
+    
+  <h1>list-template - Posts</h1>
+  
+    <article>
+      <h2>Learn HTML - Images on websites</h2>
+      <h1 id="images-on-websites">Images on Websites</h1>
+<p>Here some useful information: <a href="https://www.w3schools.com/html/html">https://www.w3schools.com/html/html</a>_images.asp</p>
+
+    </article>
+  
+    <article>
+      <h2>Hugo templates and layouts</h2>
+      <h1 id="hugo-templates-and-layouts">Hugo templates and Layouts</h1>
+<p>It seems that for understanding the rendering (and especially the NOT-rendering) of pages, I have to understand the templating and layouting syntax.<br>
+These are resources for that:</p>
+<p><a href="https://bwaycer.github.io/hugo">https://bwaycer.github.io/hugo</a>_tutorial.hugo/templates/blocks/</p>
+<p>and the official hugo documentation:<br>
+<a href="https://gohugo.io/templates/introduction/">https://gohugo.io/templates/introduction/</a></p>
+
+    </article>
+  
+    <article>
+      <h2>Hugo fixing the lugo theme</h2>
+      <h1 id="fixing-the-lugo-theme">Fixing the lugo-theme</h1>
+<p>The lugo theme (as given by Luke Smith on github) seems to have two problems, which I (empirically) fixed as follows:</p>
+<pre tabindex="0"><code>diff -bur lugo-master/layouts/_default/list.html ../dev.geargineer/themes/lugo/layouts/_default/list.html  
+--- lugo-master/layouts/_default/list.html      2025-02-28 12:55:01.000000000 +0100  
++++ ../dev.geargineer/themes/lugo/layouts/_default/list.html    2026-03-15 17:26:33.000000000 +0100  
+@@ -7,7 +7,7 @@  
+{{- range.Pages }}  
+&lt;li&gt;  
+       {{- if .Param &#34;datesinlist&#34; }}&lt;time datetime=&#34;{{ .Date.Format &#34;2006-01-02T15:04:05Z07:00&#34; }}&#34;&gt;{{ .Date.Format &#34;2006 Jan 02&#34; }}&lt;/time&gt; &amp;ndash; {{ end -}}  
+-       &lt;a href=&#34;{{ .RelPermalink }}&#34;&gt;{{ .Title }}&lt;/a&gt;  
+**+       &lt;a href=&#34;{{ .RelPermalink }}&#34;&gt; IW_Read {{ .Title }}&lt;/a&gt;**  
+       {{- if .Param &#34;authorsinlist&#34; }}  
+       {{ with .Params.authors }}  
+               by    
+diff -bur lugo-master/layouts/partials/nav.html ../dev.geargineer/themes/lugo/layouts/partials/nav.html  
+--- lugo-master/layouts/partials/nav.html       2025-02-28 12:55:01.000000000 +0100  
++++ ../dev.geargineer/themes/lugo/layouts/partials/nav.html     2026-03-15 17:26:33.000000000 +0100  
+@@ -1,6 +1,10 @@  
+&lt;nav&gt;  
+    &lt;ul&gt;  
+-       {{- $sec := .Page.Section }}{{ $file := .File.TranslationBaseName -}}  
++       {{- $sec := .Page.Section -}}  
++       {{ $file := &#34;undefined&#34; }}  
++       {{ with .File }}  
++           {{ $file = .TranslationBaseName }}  
++       {{ end }}  
+        {{ range.Site.Menus.main.ByWeight }}{{ $base := path.Base .URL }}  
+       &lt;li&gt;&lt;a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec &#34;&#34;) ( eq $file &#34;_index&#34;) (eq $base &#34;/&#34;) ) }}class=&#34;menuactive&#34; {{ end }}href=&#34;{{ .URL }}&#34;&gt;&lt;span class=pre&gt;{{ .Pre }}&lt;/span&gt;&lt;span c  
+lass=menuname&gt;{{ .Name }}&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;  
+        {{- end }}
+</code></pre><h3 id="fixing-missing-title-attribute">Fixing missing title attribute</h3>
+<p>Is the .title attribute missing, the list.html does not list the according pages. This is made visible by adding a constant prefix IW_read to the title variable. Proper fixing needed.</p>
+<h3 id="fixing-crash-of-translationsbasename">Fixing crash of TranslationsBaseName</h3>
+<p>As found in the internet (somewhere) checking .File for existence renders getting the BaseName more robust.</p>
+
+    </article>
+  
+    <article>
+      <h2>Hugo list pages missing</h2>
+      <h1 id="problem">Problem:</h1>
+<p>The list shows eight page references as indicated by the dates. However only three of them show as links</p>
+<h1 id="solution">Solution</h1>
+<p>Set in obsidian the title-Property in the frontmatter.</p>
+
+    </article>
+  
+    <article>
+      <h2>obsidian export corrupted</h2>
+      <h1 id="hugo-troubleshooting-obsidian-export">Hugo: troubleshooting obsidian export</h1>
+<h2 id="current-state">Current State</h2>
+<p>there is a successful export from obsidian in dev.geargineer/content and one corrupted in dev.geargineer.draft/content.<br>
+CAUTION: obsidian content has changed between the corrupt/non-corrupt export!</p>
+<h3 id="lets-do-a-diff">let&rsquo;s do a diff:</h3>
+<pre tabindex="0"><code>diff -bur ./git_tipps_and_tricks.md ../../dev.geargineer/content/git_tipps_and_tricks.md  
+--- ./git_tipps_and_tricks.md   2026-03-15 19:04:52.436245367 +0100  
++++ ../../dev.geargineer/content/git_tipps_and_tricks.md        2026-03-15 19:04:24.790891502 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+draft: &#39;true&#39;  
+tags:  
+- git  
+diff -bur ./hugo_fixing_lugo_theme.md ../../dev.geargineer/content/hugo_fixing_lugo_theme.md  
+--- ./hugo_fixing_lugo_theme.md 2026-03-15 19:04:52.437349993 +0100  
++++ ../../dev.geargineer/content/hugo_fixing_lugo_theme.md      2026-03-15 19:03:46.391234452 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-15 19:03:46&#39;  
+draft: &#39;true&#39;  
+tags:  
+- hugosite  
+diff -bur ./hugo_list_pages_missing.md ../../dev.geargineer/content/hugo_list_pages_missing.md  
+--- ./hugo_list_pages_missing.md        2026-03-15 19:04:52.436907960 +0100  
++++ ../../dev.geargineer/content/hugo_list_pages_missing.md     2026-03-15 19:04:24.791006289 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+---  
+   
+# Problem:  
+diff -bur ./hugo_nil_pointer.md ../../dev.geargineer/content/hugo_nil_pointer.md  
+--- ./hugo_nil_pointer.md       2026-03-15 19:04:52.436831823 +0100  
++++ ../../dev.geargineer/content/hugo_nil_pointer.md    2026-03-15 19:04:24.791119752 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+draft: &#39;true&#39;  
+title: Hugo compile crashes with error  
+---  
+@@ -8,8 +8,6 @@  
+   
+![[Pasted image 20260308190702.png]]  
+   
+-Image reference in hugo-syntax:  
+-  
+## Solution:  
+   
+see: https://discourse.gohugo.io/t/error-calling-translationbasename-runtime-error-invalid-memory-ad  
+dress-or-nil-pointer-dereference/49836  
+diff -bur ./hugo_obsidian_frontmatter.md ../../dev.geargineer/content/hugo_obsidian_frontmatter.md  
+--- ./hugo_obsidian_frontmatter.md      2026-03-15 19:04:52.436985615 +0100  
++++ ../../dev.geargineer/content/hugo_obsidian_frontmatter.md   2026-03-15 19:04:24.791246721 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+title: Setting hugo frontmatter in obsidian  
+---  
+   
+Nur in ../../dev.geargineer/content: hugopage.md.  
+diff -bur ./hugo_publish.md ../../dev.geargineer/content/hugo_publish.md  
+--- ./hugo_publish.md   2026-03-15 19:04:52.436112106 +0100  
++++ ../../dev.geargineer/content/hugo_publish.md        2026-03-15 19:04:24.791366384 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+title: Hugo Publish Extension for Obsidian  
+---  
+   
+diff -bur ./hugo_theme.md ../../dev.geargineer/content/hugo_theme.md  
+--- ./hugo_theme.md     2026-03-15 19:04:52.436490220 +0100  
++++ ../../dev.geargineer/content/hugo_theme.md  2026-03-15 19:04:24.791482321 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+title: Hugo Themes  
+---  
+   
+diff -bur ./_index.md ../../dev.geargineer/content/_index.md  
+--- ./_index.md 2026-03-15 19:04:52.437458409 +0100  
++++ ../../dev.geargineer/content/_index.md      2026-03-15 19:04:24.790762920 +0100  
+@@ -1,8 +1,8 @@  
+---  
+cascade:  
+  type: docs  
+-created: 2026-03-15 19:04:52.283466  
+-date: &#39;2026-03-15 19:04:52&#39;  
++created: 2026-03-08 20:00:51.025065  
++date: &#39;2026-03-08 20:00:51&#39;  
+menu:  
+  main:  
+    title: Notes  
+diff -bur ./obsidian_cms.md ../../dev.geargineer/content/obsidian_cms.md  
+--- ./obsidian_cms.md   2026-03-15 19:04:52.436659345 +0100  
++++ ../../dev.geargineer/content/obsidian_cms.md        2026-03-15 19:04:24.791679080 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+title: Obsidian as CMS for Hugo  
+---  
+   
+diff -bur ./obsidian_to_hugo.md ../../dev.geargineer/content/obsidian_to_hugo.md  
+--- ./obsidian_to_hugo.md       2026-03-15 19:04:52.436744238 +0100  
++++ ../../dev.geargineer/content/obsidian_to_hugo.md    2026-03-15 19:04:24.791791678 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+---  
+   
+draft:true  
+diff -bur ./publishing_hugo_sagar_se.md ../../dev.geargineer/content/publishing_hugo_sagar_se.md  
+--- ./publishing_hugo_sagar_se.md       2026-03-15 19:04:52.435963816 +0100  
++++ ../../dev.geargineer/content/publishing_hugo_sagar_se.md    2026-03-15 19:04:24.791907829 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+---  
+   
+#hugosite    
+diff -bur ./structuring_projects.md ../../dev.geargineer/content/structuring_projects.md  
+--- ./structuring_projects.md   2026-03-15 19:04:52.437149036 +0100  
++++ ../../dev.geargineer/content/structuring_projects.md        2026-03-15 19:04:24.792018934 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+title: Structuring Projects  
+---  
+   
+diff -bur ./thinkstuff.md ../../dev.geargineer/content/thinkstuff.md  
+--- ./thinkstuff.md     2026-03-15 19:04:52.435821593 +0100  
++++ ../../dev.geargineer/content/thinkstuff.md  2026-03-15 19:04:24.792125392 +0100  
+@@ -1,5 +1,5 @@  
+---  
+-date: &#39;2026-03-15 19:04:52&#39;  
++date: &#39;2026-03-08 20:00:51&#39;  
+---  
+   
+# What to Print on Your T-Shirt?
+</code></pre>
+    </article>
+  
+    <article>
+      <h2>Obsidian as CMS for Hugo</h2>
+      <h1 id="what-cms-to-use">What CMS to use?</h1>
+<p>Hugo and CMS - sounds like nonsense as hugo uses simply plan markdown?</p>
+<h2 id="alternative-1-plain-markdown">Alternative 1: plain markdown</h2>
+<p>No image preview.<br>
+Plain text editor<br>
+No copy-paste for images</p>
+<h2 id="alternative-2-markdown-editor-with-preview">Alternative 2: markdown editor with preview</h2>
+<p>Use one that</p>
+<ul>
+<li>follows symlinks (allows inclusion of images from image-dir)</li>
+</ul>
+<h2 id="alternative-3-use-obsidian">Alternative 3: use Obsidian</h2>
+<p>Obsidian relies on markdown files (good)<br>
+.. has a special syntax (not so good)<br>
+but there is a plugin &ldquo;publish to hugo&rdquo; (very good)<br>
+.. allows copy paste of images (very good)</p>
+<h4 id="setting-frontmatter-in-obsidian">Setting frontmatter in obsidian</h4>
+<p>Setting frontmatter (metadata) in obsidian is directly supported. Simply type in the first line (under the page title) three dashes: &ldquo;&mdash;&rdquo;<br>
+Obsidian recognizes that you want to enter structure frontmatter and starts a table, where you can enter key-value pairs:<br>
+<img src="/ob/Pasted%20image%2020260318111340.png" alt="Pasted image 20260318111340.png"></p>
+<h1 id="hugo-publish">Hugo Publish</h1>
+<p>See: <a href="https://github.com/kirito41dd/obsidian-hugo-publish">https://github.com/kirito41dd/obsidian-hugo-publish</a></p>
+<p><em>the following descriptions is copied from the extension&rsquo;s repo</em>, license see: <a href="https://www.apache.org/licenses/LICENSE-2.0">https://www.apache.org/licenses/LICENSE-2.0</a></p>
+<hr>
+<p>This plugin helps you publish hugo blog through obsidian.</p>
+<h2 id="features">Features</h2>
+<p>This plugin will convert the <code>.md</code> file and related images in obsidian to the hugo site dir.<br>
+Conversion includes:</p>
+<ul>
+<li><code>[[link.com]]</code> -&gt; <code>[link.com](link.com)</code></li>
+<li><code>[[link.com|alias-text]]</code> -&gt; <code>[alias-text](link.com)</code></li>
+<li><code>![[xxx.png]]</code> -&gt; <code>![xxx.png](/${static_dir}/xx.png)</code></li>
+<li><code>![[xxx.png|200*100]]</code> -&gt; <code>![xxx.png](/${static_dir}/xx.png)</code></li>
+<li>Auto write md&rsquo;s yaml header like: title,date,lastmod</li>
+</ul>
+<h2 id="how-to-use">How to use</h2>
+<ol>
+<li>Complete the plugin settings: <code>blog_tag</code>,<code>hugo_site</code>&hellip;</li>
+<li>Set <code>tags</code> in obsidian&rsquo;s md as <code>${blog_tag}</code></li>
+<li>Click <code>hugo sync</code> button or run cmd <code>Hugo Publish: Sync blog</code></li>
+<li>Enter the hugo site dir to run <code>hugo server</code> to check it</li>
+</ol>
+<h3 id="here-my-configuration-of-the-plugin">Here my configuration of the plugin</h3>
+<p>I am writing every obsidian-markdown &ldquo;plain&rdquo; into hugo&rsquo;s content directory:</p>
+<p><img src="/ob/Pasted%20image%2020260318111105.png" alt="Pasted image 20260318111105.png"></p>
+
+    </article>
+  
+
+
+    
+  </body>
+</html>
